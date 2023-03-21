@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 
 interface Task {
+	id: string
 	title: string
 	description: string
 	status: Status
@@ -24,6 +25,7 @@ type Status = 'To do' | 'In progress' | 'Done'
 export const Tasks = () => {
 	// Maneja los datos de la creación
 	const [data, setData] = useState<Task>({
+		id: '',
 		title: '',
 		description: '',
 		status: 'To do',
@@ -42,15 +44,10 @@ export const Tasks = () => {
 			console.log('debe ingresar un dato')
 			return
 		}
+		data.id = Date.now().toString()
 		setTasks([...tasks, data])
 
-		// Resetear Los campos
-		setData({ title: '', description: '', status: 'To do' })
-
-		// const {title, description} = data => {title:title, description: description}
-		// const {title, description} = data => {title, description}
-		// data => {title: data.title, description: data.description}
-		// data
+		setData({ id: '', title: '', description: '', status: 'To do' })
 	}
 
 	return (

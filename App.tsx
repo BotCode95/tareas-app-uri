@@ -1,11 +1,13 @@
 import { StyleSheet, View } from 'react-native'
 import { Home } from './src/screens/Home'
+import { NavigationContainer } from '@react-navigation/native'
+import { Tabs } from './src/Navigation/Tabs/Tabs'
 
 export default function App() {
 	return (
-		<View style={styles.container}>
-			<Home />
-		</View>
+		<NavigationContainer>
+			<Tabs />
+		</NavigationContainer>
 	)
 }
 
